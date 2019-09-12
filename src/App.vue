@@ -1,23 +1,35 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
+<div id="app">
+	<router-view v-if="isRouterAlive"></router-view>
+</div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+	name: 'App',
+	/* provide () {
+		return {
+			reload: this.reload
+		}
+	}, */
+	data () {
+		return {
+			isRouterAlive: true,
+		}
+	},
+	mounted(){},
+	methods: {
+		/* reload () {
+			const _that = this;
+			_that.isRouterAlive = false;
+			_that.$nextTick(()=>{
+				_that.isRouterAlive = true;
+			});
+		} */
+	}
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss" rel="stylesheet/scss">
+
 </style>
